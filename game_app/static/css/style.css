@@ -1,0 +1,75 @@
+
+* {
+    font-family: monospace;
+}
+
+body{
+    background-color: #28334AFF;
+}
+
+h1{
+    text-align: center;
+    font-size: 60px;
+}
+
+h2{
+    font-size: 25px;
+    margin-left: 50px;
+}
+
+h3{
+    font-size: 40px;
+    margin: 0;
+}
+
+.box p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1, h2, h3, .box p{
+    color: white;
+}
+
+.places{
+    display: flex;
+    justify-content: space-around;
+    margin: 60px 20px 80px 20px;
+}
+
+.box{
+    height: 300px;
+    width: 300px;
+    border: 5px solid #078282FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+button{
+    background-color: #FBDE44FF;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid #FBDE44FF;
+    padding: 10px 15px;
+}
+#activities{
+    height: 300px;
+    border: 5px solid #078282FF;
+    margin: 20px 40px 20px 40px;
+    padding: 10px;
+}
+#activities p{
+    font-size: 15px;
+    overflow-y: scroll;
+}
+#resetBtn{
+    width: 300px;
+    font-size: 20px;
+}
+.reset{
+    text-align: center;
+}
