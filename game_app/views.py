@@ -24,14 +24,37 @@ def process_money(request):
 
         #create earnings for locations
         if location == 'farm':
-            # earn gold
             goldEarned = round(random.random() * 10 + 10)
-            # add gold earned to mygold and save it
-            myGold += goldEarned
-            request.session = myGold
-            #create str
-            str = f"Earned {goldEarned} from {location}"
-            # save str to sessions
-            activities.append(str)
-            request.session['activities'] = activities
+
+        elif location == 'cave':
+            goldEarned = round(random.random() * 5 + 5)
+
+        elif location == 'house':
+            goldEarned = round(random.random() * 3 + 2)
+
+        else:
+            winOrLose = round(random.random())
+            if winOrLose == 1:
+                goldEarned = round(random.random() * 50)
+            else:
+                goldEarned = (round(random.random() * 50)) * -1
+
+
+
+    myGold += goldEarned
+    request.session['gold'] = myGold
+    time = datetime.now()
+    time_str = time.strftime("%d/%m/%Y %I:%M %p")
+    
+    if goldEarned >= 0:
+        str = f"Earned {goldEarned} gold from the {location} {time_str}"
+    else:
+        goldEarned *= -1
+        str = f"Lost {goldEarned} gold from the {location} {time_str}"
+
+    activities.append(str)
+    request.session['activities'] = activities
+    
+    
+    
     return redirect('/')
