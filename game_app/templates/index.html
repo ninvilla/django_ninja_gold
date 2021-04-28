@@ -52,7 +52,13 @@
         </div>
         <h2>Activities:</h2>
         <div id="activities">
-            <p class="">{{activities}}</p>
+            {% for activity in activities %}
+                {% if 'Lost' in activity %}
+            <p id="red">{{activity}}</p>  
+                {% else %}
+            <p id="green">{{activity}}</p>
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="reset">
             <button id="resetBtn">Reset</button>
