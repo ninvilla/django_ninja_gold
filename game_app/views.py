@@ -52,9 +52,13 @@ def process_money(request):
         goldEarned *= -1
         str = f"Lost {goldEarned} gold from the {location} {time_str}"
 
-    activities.append(str)
+    # activities.append(str)
+    activities.insert(0, str) # reverses list, places most recent appended str at index[0]
     request.session['activities'] = activities
     
     
     
     return redirect('/')
+
+
+    # add reset method to restart game
