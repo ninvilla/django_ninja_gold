@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Ninja Gold</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <h1>Ninja Gold</h1>
         <h2>Your Gold: {{request.session.gold}}</h2>
         <div class="locations">
@@ -19,7 +20,7 @@
                 <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="location" value="farm">
-                    <button type="submit">Find Gold</button>
+                    <button type="submit" class="btn btn-warning">Find Gold</button>
                 </form>
             </div>
             <div class="box" id="cave">
@@ -28,7 +29,7 @@
                 <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="location" value="cave">
-                    <button type="submit">Find Gold</button>
+                    <button type="submit" class="btn btn-warning">Find Gold</button>
                 </form>
             </div>
             <div class="box" id="house">
@@ -37,7 +38,7 @@
                 <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="location" value="house">
-                    <button type="submit">Find Gold</button>
+                    <button type="submit" class="btn btn-warning">Find Gold</button>
                 </form>
             </div>
             <div class="box" id="casino">
@@ -46,7 +47,7 @@
                 <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="location" value="casino">
-                    <button type="submit">Find Gold</button>
+                    <button type="submit" class="btn btn-warning">Find Gold</button>
                 </form>
             </div>
         </div>
@@ -61,8 +62,10 @@
             {% endfor %}
         </div>
         <div class="reset">
-            <button id="resetBtn">Reset</button>
+            <a href="/reset" class="btn btn-warning" id="resetBtn">Reset</a>
         </div>
+        
+        
     </div>
 </body>
 </html>
