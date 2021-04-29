@@ -6,9 +6,9 @@ def index(request):
     # set gold to 0 at start of session
     if 'gold' not in request.session or 'activities' not in request.session:
         request.session['gold'] = 0
-        # activities need to be appended to a list to track history
+
+        #create activities list
         request.session['activities'] = []
-    # pass activities through context
     context = {
         'activities': request.session['activities']
     }
@@ -40,7 +40,7 @@ def process_money(request):
                 goldEarned = (round(random.random() * 50)) * -1
 
 
-
+# gold each turn
     myGold += goldEarned
     request.session['gold'] = myGold
     time = datetime.now()
@@ -56,9 +56,9 @@ def process_money(request):
     activities.insert(0, str) # reverses list, places most recent appended str at index[0]
     request.session['activities'] = activities
     
-    
-    
     return redirect('/')
 
 
-    # add reset method to restart game
+def reset(request):
+    request.session.flush()
+    return redirect('/')
